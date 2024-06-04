@@ -107,4 +107,41 @@ public class MaintenanceService {
                 ,response);
     }
 
+    public ApiResponseClass updateMaintenance(Integer id , MaintenanceRequest request) {
+        Maintenance ma = maintenanceRepository.findById(id).orElseThrow(
+                () -> new ApiRequestException("maintenance not found")
+        );
+        ma.setCost(request.getCost());
+        ma.setNote(request.getNote());
+        ma.setType(request.getType());
+        ma.setDate(request.getDate());
+        ma.setDescription(request.getDescription());
+        maintenanceRepository.save(ma);
+
+        MaintenanceResponse response = MaintenanceResponse.builder()
+                .id(ma.getId())
+                .cost(ma.getCost())
+                .note(ma.getNote())
+                .type(ma.getType())
+                .date(ma.getDate())
+                .bicycleId(ma.getBicycle().getId())
+                .description(ma.getDescription())
+                .build();
+
+        return new ApiResponseClass("Update maintenance successfully" ,
+                HttpStatus.ACCEPTED ,
+                LocalDateTime.now(),
+                response);
+    }
+    public ApiResponseClass deleteMaintenance(Integer id) {
+        Maintenance ma = maintenanceRepository.findById(id).orElseThrow(
+                () -> new ApiRequestException("maintenance not found")
+        );
+        maintenanceRepository.delete(ma);
+
+        return new ApiResponseClass("Delete maintenance successfully" ,
+                HttpStatus.NO_CONTENT ,
+                LocalDateTime.now());
+    }
+
 }
