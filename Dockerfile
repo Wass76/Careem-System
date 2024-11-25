@@ -19,7 +19,7 @@ WORKDIR /app
 COPY target/RideShare-0.0.1-SNAPSHOT.jar /app/RideShare.jar
 
 # Expose the port your application will run on
-EXPOSE 3011
+EXPOSE 3012
 
 # Define the command to run the application
 ENTRYPOINT ["java", "-jar", "/app/RideShare.jar", "mvn spring-boot:run"]
