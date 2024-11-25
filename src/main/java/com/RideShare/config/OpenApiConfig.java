@@ -35,7 +35,7 @@ import io.swagger.v3.oas.annotations.servers.Server;
                         ),
                         @Server(
                                 description = "Prod ENV",
-                                url = "https://rideshare.devscape.online"
+                                url = "http://199.192.19.220:3012"
                         )
                 },
         security = @SecurityRequirement(name = "BearerAuth")
