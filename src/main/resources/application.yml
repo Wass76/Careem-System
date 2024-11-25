@@ -1,14 +1,14 @@
 server:
-  port: 3010
-  address: localhost
+  port: 3012
+#  address: localhost
 
 spring:
   application:
     name: RideShare
   datasource:
-    url: jdbc:postgresql://localhost:5436/rideshare
-    username: Wassem
-    password: password
+    url: jdbc:postgresql://rideshare_dp:5432/rideshare
+    username: postgres
+    password: Wassem7676.tn
     driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:

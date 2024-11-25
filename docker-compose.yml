@@ -21,15 +21,31 @@ services:
     image: rideshare-back
     container_name: rideshare-backend
     ports:
-      - "3011:3011"
+      - "3012:3012"
     environment:
       SPRING_DATASOURCE_URL: jdbc:postgresql://rideshare_dp:5432/rideshare
       SPRING_DATASOURCE_USERNAME: postgres
-      SPRING_DATASOURCE_PASSWORD: password
+      SPRING_DATASOURCE_PASSWORD: Wassem7676.tn
       SPRING_DATASOURCE_DATABASE: rideshare
     networks:
         - rideshare-net
 
+  rideshare-db:
+    image: postgres:latest
+    container_name: rideshare_db
+    environment:
+        POSTGRES_USER: postgres
+        POSTGRES_PASSWORD: Wassem7676.tn
+        PGDATA: /var/lib/postgresql/data
+    volumes:
+        - postgres-data:/var/lib/postgresql/data
+    ports:
+      - "5436:5432"
+    networks:
+      - rideshare-net
+    restart: unless-stopped
+
 networks:
   rideshare-net:
+    driver: bridge
     external: true
