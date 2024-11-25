@@ -23,7 +23,7 @@ services:
     ports:
       - "3012:3012"
     environment:
-      SPRING_DATASOURCE_URL: jdbc:postgresql://rideshare_dp:5432/rideshare
+      SPRING_DATASOURCE_URL: jdbc:postgresql://rideshare_db:5432/rideshare
       SPRING_DATASOURCE_USERNAME: postgres
       SPRING_DATASOURCE_PASSWORD: Wassem7676.tn
       SPRING_DATASOURCE_DATABASE: rideshare
